@@ -1,12 +1,3 @@
-/*
- *  The scanner definition for COOL.
- */
-
-/*
- *  Stuff enclosed in %{ %} in the first section is copied verbatim to the
- *  output, so headers and global definitions are placed here to be visible
- * to the code in the file.  Don't remove anything that was here initially
- */
 %{
 #include <cool-parse.h>
 #include <stringtab.h>
@@ -111,7 +102,7 @@ INT_CONST   {DIGIT}+
 <STRING>\" {
     BEGIN(INITIAL);
     if (max_strlen_check()) return max_strlen_err();
-    str_buf_ptr = '\0';
+    str_buf_ptr = 0;
     cool_yylval.symbol = stringtable.add_string(str_buf);
     return STR_CONST;
 }

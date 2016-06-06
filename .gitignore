@@ -1,1 +1,3 @@
 cp.sh
+*.o
+flex_lexer
